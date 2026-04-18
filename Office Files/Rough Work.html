@@ -2,115 +2,441 @@
 <html lang="en">
 
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Your Vehicle | DD Motors</title>
+
+    <!-- Title -->
+    <title>DD Motors | Heavy Vehicles Industry</title>
+
+    <!-- Favicon -->
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1995/1995506.png">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Reset Default Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Body Styling */
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f4f6fb;
-            color: #1f2933;
+            background-color: #f4f4f4;
+            line-height: 1.6;
         }
 
-        .page-header {
+        /* Site Header Styles */
+        .site-header {
             background: #fff;
-            padding: 20px 28px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 8px solid #f39c12;
+            position: sticky;
+            top: 0;
+        }
+
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .page-header h1 {
-            font-size: 26px;
-        }
-
-        .page-header a {
-            color: #f39c12;
-            text-decoration: none;
-            border: 1px solid #f39c12;
-            padding: 8px 14px;
-            border-radius: 8px;
-        }
-
-        .page-content {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 20px;
-        }
-
-        .booking-card {
+            padding: 15px 40px;
             background: #fff;
-            padding: 30px;
-            border-radius: 18px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .booking-card h2 {
-            margin-bottom: 20px;
-        }
-
-        .booking-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .form-group {
+        .logo {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: #000;
+            letter-spacing: -1px;
         }
 
-        .form-group label {
-            margin-bottom: 6px;
+        .search-desktop {
+            display: flex;
+            flex-grow: 1;
+            margin: 0 40px;
+            border: 1px solid #777;
+            height: 40px;
+        }
+
+        .search-desktop input,
+        .search-mobile input {
+            flex-grow: 1;
+            border: none;
+            padding: 0 15px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-desktop button,
+        .search-mobile button {
+            background-color: #f39c12;
+            border: none;
+            width: 50px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .contact-desktop a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .search-mobile {
+            display: none;
+            margin: 0 15px 15px 15px;
+            height: 40px;
+            border: 1px solid #777;
+        }
+
+        .desktop-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .desktop-nav .nav-links a,
+        .desktop-nav .nav-right a {
+            display: inline-block;
+            padding: 15px 20px;
+            color: #000;
+            text-decoration: none;
             font-weight: 600;
+            font-size: 14px;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 12px;
-            border-radius: 10px;
+        .desktop-nav .nav-links a .arrow {
+            font-size: 10px;
+            margin-left: 4px;
+            color: #333;
+        }
+
+        .desktop-nav .nav-links a:hover {
+            color: #555;
+        }
+
+        /* Booking Section */
+        #booking {
+            text-align: center;
+        }
+
+        #booking form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        #booking select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
             border: 1px solid #ccc;
         }
 
-        .form-row-full {
-            grid-column: 1 / -1;
+        #booking input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
 
-        .button-row {
-            margin-top: 20px;
-            display: flex;
-            gap: 10px;
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.65)),
+                url("") no-repeat center center/cover;
+            color: #ffffff;
+            padding: 120px 20px;
+            text-align: center;
         }
 
-        button {
-            padding: 12px;
-            border: none;
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            background-color: #f39c12;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #d68910;
+            transform: scale(1.05);
+        }
+
+        /* Containers */
+        .container {
+            padding: 30px;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
             border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Center specific sections */
+        #about,
+        #services,
+        #products {
+            text-align: center;
+        }
+
+        #about p {
+            margin: 20px auto;
+            display: inline-block;
+            text-align: left;
+        }
+
+        #services ul {
+            list-style: none;
+            margin: 20px auto 0 auto;
+            padding-left: 0;
+            display: block;
+            max-width: 520px;
+            text-align: left;
+        }
+
+        #services ul li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        #services ul li::before {
+            content: "•";
+            color: #f39c12;
+            position: absolute;
+            left: 0;
+        }
+
+        h2 {
+            color: #1f2933;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #f39c12;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Products */
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .card {
+            flex: 1 1 30%;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
             cursor: pointer;
         }
 
-        .submit-btn {
-            background: #f39c12;
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Contact Form */
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            background-color: #f39c12;
             color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
-        .clear-btn {
-            background: #ddd;
+        /* Contact Section */
+        #contact {
+            text-align: center;
         }
 
+        #contact form {
+            max-width: 520px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        #contact p {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2933;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 1s;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+        }
+
+        /* Mobile Slide Menu */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background: #fff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transform: translateX(-100%);
+            transition: 0.3s ease-in-out;
+            z-index: 1100;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .mobile-menu-overlay.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .close-btn {
+            font-size: 24px;
+            border: none;
+            background: none;
+            color: #111;
+            cursor: pointer;
+        }
+
+        .mobile-menu-overlay a {
+            display: block;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive Design */
         @media (max-width: 768px) {
-            .booking-grid {
-                grid-template-columns: 1fr;
+
+            .header-top {
+                justify-content: flex-start;
+                padding: 15px;
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-right: 20px;
+            }
+
+            .search-desktop,
+            .contact-desktop,
+            .desktop-nav {
+                display: none;
+            }
+
+            .search-mobile {
+                display: flex;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .products {
+                flex-direction: column;
+            }
+
+            .card {
+                flex: 1 1 100%;
             }
         }
     </style>
@@ -118,143 +444,179 @@
 
 <body>
 
-    <header class="page-header">
-        <h1>Book Your Vehicle</h1>
-        <a href="javascript:history.back()">Back to Home</a>
-    </header>
+    <header class="site-header">
+        <div class="header-top">
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
 
-    <main class="page-content">
-
-        <div class="booking-card">
-            <h2>Booking Details</h2>
-
-            <form onsubmit="handleSubmit(event)">
-                <div class="booking-grid">
-
-                    <!-- Customer -->
-                    <div class="form-group">
-                        <label>Full Name *</label>
-                        <input type="text" required>
+            <div class="logo">
+                <span style="position:relative;">DD MOTORS
+                    <div
+                        style="position:absolute; width:0; height:0; border-left:10px solid transparent; border-right:10px solid transparent; border-bottom:15px solid #f39c12; left:12px; bottom:-2px; z-index:-1;">
                     </div>
+                </span>
+            </div>
 
-                    <div class="form-group">
-                        <label>Phone Number 📞 *</label>
-                        <input type="tel" required>
-                    </div>
+            <div class="search-desktop">
+                <input type="text" placeholder="Search">
+                <button type="button">🔍</button>
+            </div>
 
-                    <div class="form-group">
-                        <label>Email ID *</label>
-                        <input type="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Company Name</label>
-                        <input type="text">
-                    </div>
-
-                    <div class="form-group form-row-full">
-                        <label>Business Type (Construction / Logistics / Mining etc.)</label>
-                        <input type="text">
-                    </div>
-
-                    <h3 class="section-title">
-                        2. Company & Address</h3>
-                    <div class="form-group form-row-full">
-                        <label>Business Address</label>
-                        <input type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label>City</label>
-                        <input type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label>State</label>
-                        <input type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Pincode</label>
-                        <input type="text">
-                    </div>
-
-                    <h3 class="section-title">🔹 3. Vehicle Requirement (Main 🔥)</h3>
-                    <div class="form-group">
-                        <label>Vehicle Type *</label>
-                        <select required>
-                            <option value="">Select</option>
-                            <option>Truck</option>
-                            <option>Lorry</option>
-                            <option>Trailer</option>
-                            <option>Crane</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>No. of Vehicles *</label>
-                        <input type="number" required>
-                    </div>
-
-                    <!-- Load -->
-                    <div class="form-group">
-                        <label>Load Type *</label>
-                        <input type="text" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Weight (Tons) *</label>
-                        <input type="number" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Trip Type *</label>
-                        <select required>
-                            <option value="">Select</option>
-                            <option>One Way</option>
-                            <option>Round Trip</option>
-                        </select>
-                    </div>
-
-                    <!-- Extra -->
-                    <div class="form-group">
-                        <label>Driver Required *</label>
-                        <select required>
-                            <option value="">Select</option>
-                            <option>Yes</option>
-                            <option>No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Budget</label>
-                        <input type="number">
-                    </div>
-
-                    <div class="form-group form-row-full">
-                        <label>Notes</label>
-                        <textarea></textarea>
-                    </div>
-
-                </div>
-
-                <div class="button-row">
-                    <button type="submit" class="submit-btn">Submit</button>
-                    <button type="reset" class="clear-btn">Clear</button>
-                </div>
-
-            </form>
+            <div class="contact-desktop">
+                <a href="#contact">Contact Us</a>
+            </div>
         </div>
 
-    </main>
+        <div class="search-mobile">
+            <input type="text" placeholder="Search">
+            <button type="button">🔍</button>
+        </div>
 
+        <nav class="desktop-nav">
+            <div class="nav-links">
+                <a href="#home">Home <span class="arrow">▼</span></a>
+                <a href="#about">About Us <span class="arrow">▼</span></a>
+                <a href="#services">Our Services <span class="arrow">▼</span></a>
+                <a href="#products">Our Products <span class="arrow">▼</span></a>
+                <a href="Booking.html">Book Now <span class="arrow">▼</span></a>
+                <a href="#contact">Contact Us <span class="arrow">▼</span></a>
+            </div>
+            <div class="nav-right">
+                <a href="#lang">🌐 English</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Slide Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <button class="close-btn" onclick="toggleMenu()">✕</button>
+        </div>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Our Services</a>
+        <a href="#products">Our Products</a>
+        <a href="Booking.html">Book Now</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to DD Motors</h1>
+        <p>Your Trusted Partner in Heavy Vehicle Solutions</p>
+        <a href="Booking.html" class="btn">Book Your Service</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="container fade-in" id="about">
+        <h2>About Us</h2>
+        <p>
+            DD Motors is a leading heavy vehicles industry specializing in the manufacturing,
+            sales, and servicing of high-performance commercial vehicles.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="container fade-in" id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Heavy Vehicle Manufacturing</li>
+            <li>Truck Sales and Distribution</li>
+            <li>Vehicle Maintenance and Repair</li>
+            <li>Spare Parts Supply</li>
+            <li>Fleet Management Solutions</li>
+        </ul>
+    </section>
+
+    <!-- Products Section -->
+    <section class="container fade-in" id="products">
+        <h2>Our Products</h2>
+        <div class="products">
+            <div class="card">
+                <img src="Images/Heavy Duty Trucks.jpg"
+                    alt="Heavy Duty Truck">
+                <h3>Heavy Duty Truck</h3>
+                <p>Reliable and powerful for long-distance transport.</p>
+            </div>
+
+            <div class="card">
+                <img src="Images/Cargo Trailers.jpg.jpg"
+                    alt="Cargo Trailer">
+                <h3>Cargo Trailer</h3>
+                <p>Designed for efficient and secure goods transport.</p>
+            </div>
+
+            <div class="card">
+                <img src="Images/Construction Vehicles.jpg"
+                    alt="Construction Vehicle">
+                <h3>Construction Vehicle</h3>
+                <p>Built for durability in demanding environments.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Call-To-Action -->
+    <section class="container fade-in" id="booking">
+        <h2>Book Your Vehicle</h2>
+        <p>Ready to place your order? Click below to continue to the full booking page.</p>
+        <div style="text-align:center; margin-top:24px;">
+            <a href="Booking.html" class="btn" style="padding: 14px 28px;">Go to Booking Page</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container fade-in" id="contact">
+        <h2>Contact Us</h2>
+        <p><strong>Address:</strong> Anna Nagar East, Chennai, Tamil Nadu</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> info@ddmotors.com</p>
+
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 DD Motors. All Rights Reserved.</p>
+        <p>Designed by Deepika Sivagurunathan</p>
+    </footer>
+
+    <!-- JavaScript -->
     <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert("Booking Submitted Successfully!");
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("active");
         }
-    </script>
 
+        // Close menu when clicking a link
+        document.querySelectorAll(".mobile-menu-overlay a").forEach(link => {
+            link.addEventListener("click", () => {
+                document.getElementById("mobileMenu").classList.remove("active");
+            });
+        });
+
+        // Scroll Fade-In Animation
+        const faders = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        faders.forEach(fader => {
+            observer.observe(fader);
+        });
+    </script>
+    
 </body>
 
 </html>
